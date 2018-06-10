@@ -1,0 +1,11 @@
+##Portainer
+docker run --name portainer -d --restart unless-stopped -p 8000:9000 -v portainer:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+##MS SQL SERVER
+docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=givemedata' -p 1433:1433 -p 1434:1434 -d --restart unless-stopped -v mssql-data:/var/opt/mssql -v /backups:/var/opt/mssql/backup microsoft/mssql-server-linux:latest
+
+## MS SQL SERVER WINDOWS
+docker run --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=givemedata' -p 1433:1433 -p 1434:1434 -d --restart unless-stopped -v mssql-data:/var/opt/mssql/data -v C://docker//backups:/var/backups microsoft/mssql-server-linux:latest
+
+##RABBIT MQ
+docker run --name rabbbit -d --restart unless-stopped -p 8004:15672 -p 8001:5672 -v rabbitmq:/var/lib/rabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=pass rabbitmq:3-management
