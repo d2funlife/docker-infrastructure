@@ -5,7 +5,7 @@ services:
         image: postgres
         volumes:
             - db-data:/var/lib/postgresql/data
-            - C://docker//buckups:/var/lib/postgresql/backups
+            - C://docker//backups:/var/lib/postgresql/backups
         ports:
             - 8002:5432
         environment:
@@ -18,7 +18,7 @@ services:
         image: dpage/pgadmin4
         volumes:
             - admin-data:/var/lib/pgadmin
-            - C://docker//buckups:/var/lib/pgadmin/storage/admin/backups
+            - C://docker//backups:/var/lib/pgadmin/storage/admin/backups
         ports:
             - 8003:80
         environment:
